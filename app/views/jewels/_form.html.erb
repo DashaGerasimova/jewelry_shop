@@ -1,0 +1,47 @@
+<%= form_with(model: jewel, local: true) do |form| %>
+  <% if jewel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jewel.errors.count, "error") %> prohibited this jewel from being saved:</h2>
+
+      <ul>
+      <% jewel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :jewel_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc, id: :jewel_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jewel_type %>
+    <%= form.text_field :jewel_type, id: :jewel_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size, id: :jewel_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :jewel_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :jewel_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
