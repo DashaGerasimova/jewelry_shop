@@ -19,7 +19,7 @@
     <div id='profile_line'>
       <% if user_signed_in? %>
         <span>Здравствуйте, <%= current_user.email %></span>
-        <%= link_to 'Профиль', 'user/profile' %>
+        <%= link_to 'Профиль', profile_path %>
         <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
       <% end %>
     </div>
