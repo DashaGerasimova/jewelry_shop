@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706083715) do
+ActiveRecord::Schema.define(version: 20170706141126) do
 
   create_table "comments", force: :cascade do |t|
     t.string "desc"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20170706083715) do
     t.index ["jewel_id"], name: "index_comments_on_jewel_id"
   end
 
-  create_table "jewels", force: :cascade do |t|
-    t.string "name"
-    t.text "desc"
-    t.string "jewel_type"
-    t.integer "size"
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "desc", null: false
+    t.string "style"
+    t.integer "size", null: false
     t.string "image"
-    t.decimal "price"
+    t.decimal "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
