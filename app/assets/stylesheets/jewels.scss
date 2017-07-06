@@ -1,3 +1,108 @@
 // Place all the styles related to the jewels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+	box-sizing: border-box;
+	font-size: 23pt;
+	font-family: Custom, sans-serif;
+}
+
+@font-face {
+    font-family: Custom; /* Имя шрифта */
+    src: url(custom.otf); /* Путь к файлу со шрифтом */
+   }
+
+canvas {
+	margin: 5px;
+	border:4px solid black;
+}
+
+select, input {
+	width: 100%;
+	height: inherit;
+	font-size: inherit;
+}
+
+
+.block {
+	border: 4px solid black;
+	padding: 10px;
+}
+
+.row {
+	width: 100%;
+}
+
+.col-3 {
+	float: left;
+	width: 25%;
+
+}
+.col-6 {
+	float: left;
+	width: 50%;
+
+}
+
+#content {
+	width: 1024px;
+	height: 700px;
+	margin: auto;
+}
+
+#upperContent {
+	height: 450px;
+
+}
+
+#rightContent, #leftContent {
+	padding: 5px;
+}
+#colorButtons {
+	width:100%;
+}
+#colorButtons .row {
+	border: 4px solid black;
+	height:110px;
+	background-image:url(/assets/pal.jpg);
+	background-size: 246px auto;
+	background-repeat: no-repeat;
+}
+#colorButtons #rowButtons {
+	margin-left:12px;
+	opacity: 0;
+
+}
+#colorButtons #rowButtons button {
+	
+	padding:none;
+	margin-bottom:3px;
+	width: 37px;
+	height: 37px;
+}
+
+
+#elementButtons {
+	margin-left: 5px;
+	height: 188px;
+	overflow: auto;
+	float:left;
+}
+#elementButtons #buttonsText {
+	height:175px;
+	float:left;
+	width: 250px;
+}
+
+#elementButtons button{
+    background:none;
+    border:none;
+    margin: none;
+    padding: none;
+    float: left;
+}
+#elementButtons button img{
+    height: 175px;
+}
+
