@@ -21,25 +21,96 @@
     <%= form.text_area :desc, id: :jewel_desc %>
   </div>
 
-  <div class="field">
-    <%= form.label :jewel_type %>
-    <%= form.text_field :jewel_type, id: :jewel_type %>
+  <div id="content"> 
+  <div id="upperContent">
+    <div class="row">
+
+      <div id="leftContent" class="col-3>
+
+        <div id="jewType">
+          <div>Выберите проектируемое изделие:</div>
+          <select class="block">
+            <option>Кольцо</option>
+            <option>Колье</option>
+            <option>Браслет</option>
+            <option>Серьги</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <div id="personalParams">
+          <div>Персональные параметры:</div>
+          <div class="block">Размер кольца <input type="number" size="15" name="num" min="10" max="30" value="17"></div>
+        </div>
+
+      </div>
+
+      <div id="canvasContent" class="col-6"> 
+        <canvas id="canvas" width="500" height="400"></canvas>
+
+      </div>
+
+      <div id="rightContent" class="col-3">
+        <div id="buyForm">
+          К оплате и доставке <a href="">-&gt;</a>
+        </div>
+        <div id="price" class="block">
+          Цена:7500р
+        </div>
+
+        <hr>
+
+        <div id="colorButtons">
+          <div id="colorHeader">Цвета:</div>
+          <div class="row"  class="block">
+      <div id="rowButtons">
+        <button id="blue"></button>
+        <button id="purple"></button>
+        <button id="red"></button>
+        <button id="lightgreen"></button>
+        <button id="grey"></button>
+        <button id="grey"></button>
+        <button id="aqua"></button>
+        <button id="orange"></button>
+        <button id="yellow"></button>
+        <button id="green"></button>
+      </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.number_field :size, id: :jewel_size %>
+  <div id="elementButtons">
+    <div class="row">
+  
+    <div id="buttonsText" class="block">
+    Комбинируйте основные модули
+    </div>
+
+      <button id="squareElement">
+        <img src="images/squares.jpg">
+      </button>
+
+      <button id="circleElement">
+        <img src="images/circles.jpg">
+      </button>
+
+      <button id="pinElement">
+        <img src="images/pins.jpg">
+      </button>
+
+      <button id="planeElement">
+        <img src="images/planes.jpg">
+      </button>
+
+  </div>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :jewel_image %>
   </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :jewel_price %>
-  </div>
+  <script src="scripts/funcs.js"></script>
 
   <div class="actions">
     <%= form.submit %>
