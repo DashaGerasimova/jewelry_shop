@@ -13,6 +13,7 @@
 
   <script src="/assets/fabric.js"></script>
   <script src="/assets/builder_funcs.js"></script>
+  <script src="/assets/save_canvas_as_png.js"></script>
 
   <div id="builder"> 
   <div id="upperContent">
@@ -25,6 +26,9 @@
       <%= form.label :desc %>
       <%= form.text_area :desc, id: :product_desc %>
     </div>
+
+    <input id="image" type="hidden" value="" name="image" />
+    
     <div class="row">
 
       <div id="leftContent" class="col-3">
@@ -75,6 +79,10 @@
           </div>
           </div>
         </div>
+
+        <div id="saveButton">
+          <button onclick="saveImg();">Save</button>
+        </div>
       </div>
 
     </div>
@@ -108,8 +116,7 @@
 
   </div>
 
-
-  <div id="submit_button" class="actions">
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
