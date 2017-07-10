@@ -22,6 +22,25 @@ p
   strong
     | Price:
   = @product.price
+
+- @product.comments.each do |comment|
+  p
+    strong Rating:
+    = comment.rating
+  p
+    strong Comment:
+    = comment.text
+
+= form_for([@product, @product.comments.build]) do |f|
+  .field
+    = f.label :rating
+    = f.number_field :rating
+  .field
+    = f.label :text
+    = f.number_field :text
+  .actions
+    = f.submit
+
 = link_to 'Edit', edit_product_path(@product)
 |  | 
 = link_to 'Back', products_path
