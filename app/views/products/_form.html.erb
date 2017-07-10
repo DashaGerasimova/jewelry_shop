@@ -1,10 +1,10 @@
-<%= form_with(model: jewel, local: true) do |form| %>
-  <% if jewel.errors.any? %>
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(jewel.errors.count, "error") %> prohibited this jewel from being saved:</h2>
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
-      <% jewel.errors.full_messages.each do |message| %>
+      <% product.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,18 +12,18 @@
   <% end %>
 
   <script src="/assets/fabric.js"></script>
-  <script src="/assets/funcs.js"></script>
+  <script src="/assets/builder_funcs.js"></script>
 
-  <div id="content"> 
+  <div id="builder"> 
   <div id="upperContent">
     <div class="field">
       <%= form.label :name %>
-      <%= form.text_field :name, id: :jewel_name %>
+      <%= form.text_field :name, id: :product_name %>
     </div>
 
     <div class="field">
       <%= form.label :desc %>
-      <%= form.text_area :desc, id: :jewel_desc %>
+      <%= form.text_area :desc, id: :product_desc %>
     </div>
     <div class="row">
 
@@ -31,7 +31,7 @@
 
         <div id="jewType">
           <div>Выберите проектируемое изделие:</div>
-          <%= form.select(:jewel_type, options_for_select([["Ring", 1], ["Necklace", 2]], 1)) %>
+          <%= form.select(:style, options_for_select([["Ring", 1], ["Necklace", 2]], 1)) %>
         </div>
 
         <hr>
@@ -109,7 +109,7 @@
   </div>
 
 
-  <div class="actions">
+  <div id="submit_button" class="actions">
     <%= form.submit %>
   </div>
 <% end %>
