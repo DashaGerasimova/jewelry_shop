@@ -112,6 +112,12 @@ canvas.on('object:scaling', (e) => {
   }
 })
 
+//Set all button's type as button (to prevent reloading)
+document.querySelectorAll("#builder button").forEach(function(el) {
+  el.setAttribute("type", "button");
+});
+
+//Set drawing functions on buttons
 document.querySelectorAll("#elementButtons #squareElement").forEach(function(el) {
   el.onclick = drawSquare;
 });

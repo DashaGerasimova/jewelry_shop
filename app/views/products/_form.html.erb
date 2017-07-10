@@ -12,9 +12,9 @@
   <% end %>
 
   <script src="/assets/fabric.js"></script>
-  <script src="/assets/funcs.js"></script>
+  <script src="/assets/builder_funcs.js"></script>
 
-  <div id="content"> 
+  <div id="builder"> 
   <div id="upperContent">
     <div class="field">
       <%= form.label :name %>
@@ -109,7 +109,7 @@
   </div>
 
 
-  <div class="actions">
+  <div id="submit_button" class="actions">
     <%= form.submit %>
   </div>
 <% end %>
