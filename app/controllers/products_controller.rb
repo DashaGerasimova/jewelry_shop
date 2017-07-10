@@ -24,13 +24,6 @@ class ProductsController < ApplicationController
 
     if @product.save
       redirect_to @product, notice: 'product was successfully created.'
-      unless params[:image].empty?
-        data = params[:image]
-        image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
-        File.open("#{Rails.root}/public#{@product.id.to_s}", 'wb') do |f|
-          f.write image_data
-      end
-    end
     else
       render :new 
     end
