@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:product_id])
+    @comment = @product.comments.find(params[:id])
   end
 
   def create
@@ -24,6 +26,8 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:product_id])
+    @comment = @product.comments.find(params[:id])
     if @comment.update(comment_params)
       redirect_to @product, notice: 'Comment was successfully updated.' 
     else
