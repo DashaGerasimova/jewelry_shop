@@ -35,6 +35,9 @@ gem 'devise'
 
 gem 'slim'
 
+gem 'decent_exposure', '3.0.0'
+gem 'responders'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
