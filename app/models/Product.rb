@@ -2,5 +2,4 @@ class Product < ApplicationRecord
   validates :size, inclusion: { in: 17..30, message: "should be between 17 and 30" }
 
   has_many :comments, dependent: :destroy
-  accepts_nested_attributes_for :comments
 end

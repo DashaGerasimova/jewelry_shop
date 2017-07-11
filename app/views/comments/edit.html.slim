@@ -1,12 +1,2 @@
-h1
-  | Editing comment:
-= form_for([@comment.product, @comment]) do |f|
-  .field
-    = f.label :rating
-    = f.select :rating, [['horrible', 1], ['poor', 2], ['mediocre', 3], ['good', 4], ['great', 5]]
-  .field
-    = f.label :text
-    = f.text_field :text
-  .actions
-    = f.submit
+= render ('form'), product: @product
 = link_to 'Back', @product
