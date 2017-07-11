@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706141126) do
+ActiveRecord::Schema.define(version: 20170710110014) do
 
   create_table "comments", force: :cascade do |t|
-    t.string "desc"
-    t.text "text"
+    t.integer "rating", null: false
+    t.text "text", null: false
+    t.integer "user_id"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "jewel_id"
-    t.index ["jewel_id"], name: "index_comments_on_jewel_id"
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
