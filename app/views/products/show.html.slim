@@ -1,29 +1,29 @@
 p
   strong Name:
-  = @product.name
+  = product.name
 p
   strong Desc:
-  = @product.desc
+  = product.desc
 p
   strong Type:
-  = @product.style
+  = product.style
 p
   strong Size:
-  = @product.size
+  = product.size
 p
   strong Image:
-  = @product.image
+  = product.image
 p
   strong Price:
-  = @product.price
+  = product.price
 
 #commentsBlock
   p 
     strong Comments:
-  = render @product.comments
+  = render product.comments
     
-= render ('comments/form'), product: @product
+= render 'comments/form'
 
-= link_to 'Edit', edit_product_path(@product)
+= link_to 'Edit', edit_product_path(product)
 |  | 
 = link_to 'Back', products_path
