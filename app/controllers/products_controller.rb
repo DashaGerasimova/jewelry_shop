@@ -3,7 +3,8 @@ require 'base64'
 class ProductsController < ApplicationController
   expose :products, ->{ Product.all }
   expose :product
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+  before_action :authenticate_user!
   
   def index
   end
