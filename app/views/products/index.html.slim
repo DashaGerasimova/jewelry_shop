@@ -1,8 +1,8 @@
 h1
   | products
 
-- if @user.has_role?(:admin)
-  p Hello admin
+- if current_user && current_user.admin?
+  h1 Hello admin
 
 table
   thead

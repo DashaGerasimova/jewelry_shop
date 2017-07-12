@@ -43,6 +43,7 @@ gem 'responders'
 #gems for user/admin/guest roles
 gem 'cancancan'
 gem 'rolify'
+gem 'rails_admin'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
