@@ -1,5 +1,9 @@
 h1
   | products
+
+- if @user.has_role?(:admin)
+  p Hello admin
+
 table
   thead
     tr

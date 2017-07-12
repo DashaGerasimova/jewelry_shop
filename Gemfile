@@ -33,10 +33,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7' 
 gem 'devise'
 
+#Better look for views
 gem 'slim'
 
+#Better look for controllers
 gem 'decent_exposure', '3.0.0'
 gem 'responders'
+
+#gems for user/admin/guest roles
+gem 'cancancan'
+gem 'rolify'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

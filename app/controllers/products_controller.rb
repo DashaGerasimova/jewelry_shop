@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   expose :products, ->{ Product.all }
   expose :product
 
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   
   def index
   end
