@@ -1,4 +1,4 @@
-= form_for([comment.product, comment]) do |f|
+= form_for([product, comment]) do |f|
   .field
     = f.label :rating
     = f.select :rating, [['horrible', 1], ['poor', 2], ['mediocre', 3], ['good', 4], ['great', 5]]

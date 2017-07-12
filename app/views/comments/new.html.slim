@@ -1,9 +1,0 @@
-= form_for([product, product.comments.build]) do |f|
-  .field
-    = f.label :rating
-    = f.select :rating, [['horrible', 1], ['poor', 2], ['mediocre', 3], ['good', 4], ['great', 5]]
-  .field
-    = f.label :text
-    = f.text_field :text
-  .actions
-    = f.submit

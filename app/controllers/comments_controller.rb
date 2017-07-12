@@ -24,24 +24,18 @@ class CommentsController < ApplicationController
   def create
     comment.user_id = current_user.id
 
-    if comment.save
-      redirect_to product, notice: 'Comment was successfully created.' 
-    else
-      redirect_to product, notice: 'Comment wasnt successfully created.' 
-    end    
+    comment.save
+    respond_with comment, location: comment.product
   end
 
   def update
-    if comment.update(comment_params)
-      redirect_to product, notice: 'Comment was successfully updated.' 
-    else
-      redirect_to product, notice: 'Comment was successfully updated.' 
-    end
+    comment.update(comment_params)
+    respond_with comment, location: comment.product
   end
 
   def destroy
     comment.destroy
-    redirect_to product, notice: 'Comment was successfully destroyed.' 
+    respond_with comment, location: comment.product
   end
 
   private
