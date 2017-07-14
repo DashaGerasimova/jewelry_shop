@@ -5,8 +5,4 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   resourcify
-
-  def user_email
-    User.find_by(id: self.user_id).email
-  end
 end

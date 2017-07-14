@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment.user_id = current_user.id
+    comment.user = current_user
 
     comment.save
     respond_with comment, location: comment.product
