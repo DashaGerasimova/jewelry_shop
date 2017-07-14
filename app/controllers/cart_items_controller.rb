@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    cart_items.delete(product)
+    cart_items.delete_if {|elem| elem["id"] == product.id}
     redirect_to cart_items_path
   end
 
