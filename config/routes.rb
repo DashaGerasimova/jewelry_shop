@@ -6,8 +6,8 @@ get 'profile', to: 'user#profile'
 
 devise_for :users
 resources :products do
-	resources :comments
-end
+  resources :comments
+end 
   
   root to:'products#index'
 end

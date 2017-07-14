@@ -1,5 +1,5 @@
 h1
-  | products
+  | Official products
   
 table
   thead
@@ -16,10 +16,12 @@ table
         | Image
       th
         | Price
+      th
+        | Author
       th[colspan="3"]
   tbody
-    - products.each do |product| 
-      tr
+    tr
+      - products.each do |product|
         td
           = product.name
         td
@@ -33,6 +35,8 @@ table
         td
           = product.price
         td
+          = product.user.email
+        td
           = link_to 'Show', product
 
         - if current_user.try(:editor?)
@@ -40,5 +44,7 @@ table
             = link_to 'Edit', edit_product_path(product)
           td
             = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+
 br
+
 = link_to 'New product', new_product_path

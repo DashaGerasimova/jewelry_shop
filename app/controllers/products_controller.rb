@@ -18,6 +18,8 @@ class ProductsController < ApplicationController
   end
 
   def create
+    product.user = current_user
+    
     product.save
     respond_with product
   end
