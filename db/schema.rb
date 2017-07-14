@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714090405) do
+ActiveRecord::Schema.define(version: 20170713084908) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "rating", null: false
@@ -45,23 +45,6 @@ ActiveRecord::Schema.define(version: 20170714090405) do
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
-  end
-
-  create_table "shopping_cart_items", force: :cascade do |t|
-    t.integer "owner_id"
-    t.string "owner_type"
-    t.integer "quantity"
-    t.integer "item_id"
-    t.string "item_type"
-    t.integer "price_cents", default: 0, null: false
-    t.string "price_currency", default: "USD", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shopping_carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
