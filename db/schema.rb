@@ -60,10 +60,8 @@ ActiveRecord::Schema.define(version: 20170714090405) do
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

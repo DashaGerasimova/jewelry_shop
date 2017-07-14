@@ -38,6 +38,8 @@ table
           = product.user.email
         td
           = link_to 'Show', product
+        td
+          = link_to 'Add Item To My Cart', cart_items_path(product_id: product), method: :post
 
         - if current_user.try(:editor?)
           td

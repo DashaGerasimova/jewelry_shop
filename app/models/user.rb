@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
         
+  has_one :shopping_cart, dependent: :destroy
+  has_many :shopping_cart_items, through: :shopping_cart
   has_many :products, dependent: :destroy
   has_many :comments, dependent: :destroy
 
