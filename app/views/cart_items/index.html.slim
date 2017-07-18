@@ -8,14 +8,8 @@ table
       th Price
       th colspan="3" 
   tbody
-    - cart.cart_items.each do |cart_item|
-      tr
-        td = cart_item.product.name
-        td = cart_item.product.desc
-        td = cart_item.quantity
-        td
-          = number_to_currency(cart_item.sum_price)
-        td = link_to 'Destroy', cart_item, method: :delete, data: { confirm: 'Are you sure?' }
+    = render cart.cart_items
+      
 
 div Total:#{number_to_currency(cart.total)}
 
