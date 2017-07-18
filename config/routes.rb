@@ -8,6 +8,8 @@ devise_for :users
 resources :products do
   resources :comments
 end 
-  
+
+resources :cart_items
+
   root to:'products#index'
 end
