@@ -10,4 +10,8 @@ class Cart < ApplicationRecord
     end
     item
   end
+
+  def total 
+    cart_items.sum {|item| item.sum_price}
+  end
 end

@@ -10,6 +10,6 @@ resources :products do
 end 
 
 resources :cart_items
-
+resources :carts, only: :destroy
   root to:'products#index'
 end

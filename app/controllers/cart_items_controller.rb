@@ -25,7 +25,7 @@ class CartItemsController < ApplicationController
     def set_cart
       cart = Cart.find_by(id: session[:cart_id]) || Cart.create
       session[:cart_id] = cart.id
-      return cart
+      cart
     end
 
     def set_product
