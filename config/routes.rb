@@ -4,7 +4,7 @@ mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
 get 'profile', to: 'user#profile'
 
-devise_for :users
+devise_for :users, controllers:{sessions: 'sessions'}
 resources :products do
   resources :comments
 end 
