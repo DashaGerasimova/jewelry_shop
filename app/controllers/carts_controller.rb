@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  include CurrentCart   #for set_cart method
   expose(:product) { set_product }
   expose(:cart) { set_cart }
 
@@ -22,8 +23,4 @@ class CartsController < ApplicationController
     def set_product
       Product.find(params[:product_id])
     end 
-
-    def set_cart
-      session[:cart] || session[:cart] = []
-    end
 end
