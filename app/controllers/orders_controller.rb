@@ -5,27 +5,19 @@ class OrdersController < ApplicationController
   expose(:order_products) { set_order_products }
   expose(:cart) { set_cart }
 
-  def index
+  def index #for admins
   end
 
-  def show
+  def show 
   end
 
   def new
-  end
-
-  def edit
   end
 
   def create
     if order.save
       create_order_products_from_cart
     end
-    respond_with order, location: root_path
-  end
-
-  def update
-    order.update(order_params)
     respond_with order, location: root_path
   end
 
