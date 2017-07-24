@@ -15,6 +15,7 @@ html
       - if user_signed_in?
         span
           | Hello, #{current_user.email}
+        = link_to 'Cart', carts_path
         = link_to 'Profile', profile_path
         = link_to 'Logout', destroy_user_session_path, :method => :delete
       - else 

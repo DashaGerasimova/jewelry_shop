@@ -1,0 +1,18 @@
+p
+  strong Name:
+  = order.name
+p
+  strong Phone number:
+  = order.phone_number
+p
+  strong Email:
+  = order.email
+p
+  strong Address:
+  = order.address
+p
+  strong Pay type:
+  = order.pay_type
+= link_to 'Cancel Order', order_path, method: :delete
+| \
+= link_to 'Back', profile_path

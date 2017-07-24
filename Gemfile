@@ -32,18 +32,17 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' 
 gem 'devise'
-
 #Better look for views
 gem 'slim'
-
 #Better look for controllers
 gem 'decent_exposure', '3.0.0'
 gem 'responders'
-
 #gems for user/admin/guest roles
 gem 'cancancan'
 gem 'rolify'
 gem 'rails_admin'
+#gem for shopping cart
+gem 'acts_as_shopping_cart'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
