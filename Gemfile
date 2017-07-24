@@ -41,8 +41,8 @@ gem 'responders'
 gem 'cancancan'
 gem 'rolify'
 gem 'rails_admin'
-#gem for shopping cart
-gem 'acts_as_shopping_cart'
+#gem for uploading images to aws
+gem 'aws-sdk'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
