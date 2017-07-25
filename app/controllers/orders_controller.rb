@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    order.user = current_user
     if order.save
       create_order_products_from_cart
     end
