@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  include CurrentCart   #for set_cart method
+  include CurrentCart   #for set_cart and sort_cart method
   expose(:product) { set_product }
   expose(:cart) { set_cart }
   expose(:sorted_cart) { sort_cart }
@@ -18,8 +18,4 @@ class CartsController < ApplicationController
     def set_product
       Product.find(params[:product_id])
     end 
-
-    def sort_cart
-      cart.inject(Hash.new(0)) { |quantity, product| quantity[product] += 1 ;quantity}
-    end
 end
