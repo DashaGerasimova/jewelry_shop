@@ -13,6 +13,9 @@ p
 p
   strong Pay type:
   = order.pay_type
+p
+  strong Change order status:
+  = order.pay_type
 = link_to 'Cancel Order', order_path, method: :delete
 | \
 = link_to 'Back', profile_path
