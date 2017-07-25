@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   include CurrentCart   #for set_cart method
-  expose(:product) { set_product(params[:product_id]) }
+  expose(:product) { set_product }
   expose(:cart) { set_cart }
   expose(:sorted_cart) { sort_cart }
 
@@ -15,8 +15,8 @@ class CartsController < ApplicationController
   end
 
   private
-    def set_product(product_id)
-      Product.find(product_id)
+    def set_product
+      Product.find(params[:product_id])
     end 
 
     def sort_cart
