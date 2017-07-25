@@ -1,13 +1,8 @@
 class CartsController < ApplicationController
-  include CurrentCart   #for set_cart method
+  include CurrentCart   #for set_cart and sort_cart method
   expose(:product) { set_product }
   expose(:cart) { set_cart }
-
-  def index
-  end
-
-  def new
-  end
+  expose(:sorted_cart) { sort_cart }
 
   def create
     cart << product.id

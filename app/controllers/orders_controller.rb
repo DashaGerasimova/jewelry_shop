@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-  include CurrentCart   #for set_cart method
+  include CurrentCart   #for set_cart and sort_cart method
   expose(:order)
   expose(:orders) { Order.all }
   expose(:order_products) { set_order_products }
   expose(:cart) { set_cart }
+  expose(:sorted_cart) { sort_cart }
 
   def index #for admins
   end
@@ -28,13 +29,8 @@ class OrdersController < ApplicationController
 
   private
     def create_order_products_from_cart
-      cart.each do |product_id|
-        order_product = OrderProduct.find_by(product_id: product_id)
-        if order_product
-          order_product.quantity += 1
-        else
-          order_product = OrderProduct.new(product_id: product_id, order_id: order.id, quantity: 1, cost: 1) 
-        end
+      sorted_cart.each do |product_id, quantity|
+        order_product = OrderProduct.new(product_id: product_id, order_id: order.id, cost: Product.find(product_id).price * quantity, quantity: quantity)   
         order_product.save
       end
     end
