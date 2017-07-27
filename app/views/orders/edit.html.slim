@@ -1,0 +1,17 @@
+h1 Change order status
+= form_with(model: order, local: true) do |form|
+  - if order.errors.any?
+    #error_explanation
+      h2
+        = pluralize(order.errors.count, "error")
+        | prohibited this order from being saved:
+      ul
+        - order.errors.full_messages.each do |message|
+          li= message
+  .field
+    = form.label :status
+    = form.select :status, Order.statuses.keys, id: :order_status
+  .actions
+    = form.submit
+
+= link_to 'Back', carts_path

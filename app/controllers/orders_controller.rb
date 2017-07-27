@@ -17,6 +17,12 @@ class OrdersController < ApplicationController
     respond_with order, location: root_path
   end
 
+  #update order.status
+  def update
+    order.update(order_status)
+    respond_with order, location: root_path
+  end 
+
   def destroy
     order.destroy
     respond_with order, location: root_path
@@ -36,6 +42,9 @@ class OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(:name, :phone_number, :email, :address, :pay_type)
+    end
+    def order_status
+      params.require(:order).permit(:status)
     end
 
     def ensure_can_manage_orders
