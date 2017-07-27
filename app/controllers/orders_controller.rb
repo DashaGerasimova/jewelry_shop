@@ -6,15 +6,6 @@ class OrdersController < ApplicationController
   expose(:cart) { set_cart }
   expose(:sorted_cart) { sort_cart }
 
-  def index #for admins
-  end
-
-  def show 
-  end
-
-  def new
-  end
-
   def create
     order.user = current_user
     if order.save
