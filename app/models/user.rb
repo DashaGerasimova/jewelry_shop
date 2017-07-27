@@ -12,7 +12,7 @@ class User < ApplicationRecord
   def admin?
     self.has_role? :admin
   end
-  def editor?
+  def manager?
     self.has_role? :editor
   end
 end

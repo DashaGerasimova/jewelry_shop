@@ -41,7 +41,7 @@ table
         td
           = link_to 'Add Item To My Cart', carts_path(product_id: product), method: :post
 
-        - if current_user.try(:editor?)
+        - if current_user.try(:manager?)
           td
             = link_to 'Edit', edit_product_path(product)
           td
