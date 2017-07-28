@@ -6,6 +6,9 @@ class OrdersController < ApplicationController
   expose(:cart) { set_cart }
   expose(:sorted_cart) { sort_cart }
 
+  #only managers can see all orders and change order status
+  before_action :ensure_can_manage_orders, only: [:edit, :update, :index] 
+
   def create
     order.user = current_user
     if order.save
@@ -13,6 +16,12 @@ class OrdersController < ApplicationController
     end
     respond_with order, location: root_path
   end
+
+  #update order.status
+  def update
+    order.update(order_status)
+    respond_with order, location: root_path
+  end 
 
   def destroy
     order.destroy
@@ -33,5 +42,14 @@ class OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(:name, :phone_number, :email, :address, :pay_type)
+    end
+    def order_status
+      params.require(:order).permit(:status)
+    end
+
+    def ensure_can_manage_orders
+      unless current_user.has_any_role? :manager, :admin
+        redirect_to root_path, alert: 'Access denied'
+      end 
     end
 end
