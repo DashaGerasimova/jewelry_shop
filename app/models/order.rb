@@ -5,16 +5,16 @@ class Order < ApplicationRecord
   after_create_commit :send_order_create_notification
   after_update_commit :send_order_status_update_notification
 
-  pay_types = [
-    "Cash", 
-    "Credit Card",
-    "Check"
-  ]
-  statuses = [
-    "Not staged",
-    "In progress",
-    "Ready"
-  ]
+   enum pay_types: {
+    cash: "Cash", 
+    credit_card: "Credit Card",
+    check: "Check"
+  }
+  enum statuses: {
+    not_staged: "Not staged",
+    in_progress: "In progress",
+    ready: "Ready"
+  }
 
   def send_order_create_notification
     OrderMailer.delay.order_create_notification(self)

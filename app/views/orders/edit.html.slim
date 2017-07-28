@@ -10,7 +10,7 @@ h1 Change order status
           li= message
   .field
     = form.label :status
-    = form.select :status, Order.statuses.keys, id: :order_status
+    = form.select :status, Order.statuses.values, id: :order_status
   .actions
     = form.submit
 
