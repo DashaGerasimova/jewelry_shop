@@ -1,6 +1,5 @@
 class OrderMailer < ApplicationMailer
-  default from: 'from@example.com'
-
+  include Sidekiq::Mailer
   def order_create_notification(order)
     @order = order
     mail(to: order.email, subject: 'Your order was successfully created!')

@@ -44,6 +44,10 @@ gem 'rails_admin'
 #gem for uploading images to aws
 gem 'aws-sdk'
 
+gem "interactor", "~> 3.0"
+gem 'sidekiq'
+gem 'sidekiq_mailer'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

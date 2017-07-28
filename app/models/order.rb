@@ -17,10 +17,10 @@ class Order < ApplicationRecord
   }
 
   def send_order_create_notification
-    OrderMailer.order_create_notification(self).deliver!
+    OrderMailer.delay.order_create_notification(self)
   end
 
   def send_order_status_update_notification
-    OrderMailer.order_update_status_notification(self).deliver!
+    OrderMailer.delay.order_update_status_notification(self)
   end
 end
