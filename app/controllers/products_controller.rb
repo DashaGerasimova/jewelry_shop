@@ -48,6 +48,7 @@ class ProductsController < ApplicationController
       File.open(image_location, 'wb') do |f|
         f.write image_data
       end
+      #I temporarly removed uploading to s3, because my account is banned for some reason 
 
       # service = Aws::S3::Resource.new(region: "us-east-2")
       # bucket_name = "jewelry-shop-images"
