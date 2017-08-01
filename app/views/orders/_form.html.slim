@@ -21,6 +21,6 @@
     = form.text_area :address, id: :order_address
   .field
     = form.label :pay_type
-    = form.select :pay_type, Order.pay_types.keys, id: :order_pay_type
+    = form.select :pay_type, Order.pay_types.values, id: :order_pay_type
   .actions
     = form.submit

@@ -2,14 +2,14 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_products, dependent: :destroy
 
-  enum pay_type: {
-    "Cash" => 0, 
-    "Credit Card" => 1,
-    "Check" => 2
+  enum pay_types: {
+    cash: "Cash", 
+    credit_card: "Credit Card",
+    check: "Check"
   }
-  enum status: {
-    "Not staged" => 0, 
-    "In progress" => 1,
-    "Ready" => 2
+  enum statuses: {
+    not_staged: "Not staged",
+    in_progress: "In progress",
+    ready: "Ready"
   }
 end
