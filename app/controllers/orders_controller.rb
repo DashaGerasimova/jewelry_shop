@@ -13,19 +13,22 @@ class OrdersController < ApplicationController
     order.user = current_user
     if order.save
       create_order_products_from_cart
+      OrderCreateNotification.call(order: order)
     end
-    respond_with order, location: root_path
+    respond_with order, location: profile_path
   end
 
   #update order.status
   def update
-    order.update(order_status)
-    respond_with order, location: root_path
+    if order.update(order_status)
+      OrderUpdateStatusNotification.call(order: order)
+    end
+    respond_with order, location: orders_path
   end 
 
   def destroy
     order.destroy
-    respond_with order, location: root_path
+    respond_with order, location: orders_path
   end
 
   private
