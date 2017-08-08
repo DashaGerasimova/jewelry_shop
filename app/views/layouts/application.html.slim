@@ -11,6 +11,9 @@ html
       p.alert.alert-success= notice
     - if alert
       p.alert.alert-danger= alert
+    #header_line
+      = link_to 'Jewelry Shop', root_path
+    br
     #profile_line
       - if user_signed_in?
         span

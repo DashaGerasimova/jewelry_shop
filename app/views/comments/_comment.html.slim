@@ -1,10 +1,15 @@
 #comment
   p
+    strong Author:
+    = comment.user.email
+  p
     strong Rating:
     = comment.rating
   p
     strong Comment:
     = comment.text
-  = link_to 'Edit', edit_product_comment_path(comment.product, comment)
-  |  | 
-  = link_to 'Delete', product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' }
+  - if current_user.try(:manager?) || comment.user == current_user
+    = link_to 'Edit', edit_product_comment_path(comment.product, comment)
+    |  | 
+    = link_to 'Delete', product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' }
+  hr
