@@ -18,6 +18,8 @@ table
         | Price
       th
         | Author
+      th
+        | Rating
       th[colspan="3"]
   tbody
     - products.each do |product|
@@ -36,6 +38,8 @@ table
           = product.price
         td
           = product.user.email
+        td
+          = product.rating
         td
           = link_to 'Show', product
         td
