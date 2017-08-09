@@ -2,7 +2,7 @@ require 'base64'
 require 'aws-sdk'
 
 class ProductsController < ApplicationController
-  expose :products, ->{ Product.all }
+  expose :products, ->{ Product.all.sort_by {|product| product.rating }.reverse }
   expose :product
   
   def index
