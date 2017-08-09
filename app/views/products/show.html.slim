@@ -22,8 +22,9 @@ p
     strong Comments:
     hr
   = render product.comments
-    
-= render 'comments/form', comment: product.comments.build
+
+- unless current_user.nil?  
+  = render 'comments/form', comment: product.comments.build
 
 - if current_user.try(:manager?) || product.user == current_user
   = link_to 'Edit', edit_product_path(product)
