@@ -1,17 +1,10 @@
 class CommentsController < ApplicationController 
 
   expose(:product) { set_product }
-  expose(:comments) { product.comments }
   expose(:comment) { set_comment }
-
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
+  
+  expose(:comments) { product.comments }
+  expose(:answers) { comment.answers }
 
   def create
     comment.user = current_user
@@ -35,7 +28,7 @@ class CommentsController < ApplicationController
     def set_product
       Product.find(params[:product_id])
     end
-    
+
     def set_comment
       unless params[:id].nil?
         product.comments.find_by(id: params[:id])

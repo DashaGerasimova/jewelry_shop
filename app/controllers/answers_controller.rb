@@ -1,44 +1,38 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  
+  expose(:comment) { set_comment }
+  expose(:answer) { set_answer }
 
-  respond_to :html
-
-  def index
-    @answers = Answer.all
-    respond_with(@answers)
-  end
-
-  def show
-    respond_with(@answer)
-  end
-
-  def new
-    @answer = Answer.new
-    respond_with(@answer)
-  end
-
-  def edit
-  end
+  expose(:answers) { comment.answers }
 
   def create
-    @answer = Answer.new(answer_params)
-    @answer.save
-    respond_with(@answer)
+    answer.user = current_user
+
+    answer.save
+    respond_with answer, location: comment.product
   end
 
   def update
-    @answer.update(answer_params)
-    respond_with(@answer)
+    answer.update(answer_params)
+    respond_with answer, location: comment.product
   end
 
   def destroy
-    @answer.destroy
-    respond_with(@answer)
+    answer.destroy
+    respond_with answer, location: comment.product
   end
 
   private
+
+    def set_comment
+      Comment.find(params[:comment_id])
+    end
     def set_answer
-      @answer = Answer.find(params[:id])
+      unless params[:id].nil?
+        comment.answers.find_by(id: params[:id])
+      else
+        comment.answers.new(comment_params)
+      end
     end
 
     def answer_params
