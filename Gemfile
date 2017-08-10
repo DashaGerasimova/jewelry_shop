@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 #gem for decoration
 gem 'draper'
+gem 'decent_decoration', '~> 0.1.0'
 #Better look for views
 gem 'slim'
 #Better look for controllers
