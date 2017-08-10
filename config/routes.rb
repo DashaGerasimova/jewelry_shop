@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :answers
 mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
 get 'profile', to: 'user#profile'
