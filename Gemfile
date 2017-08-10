@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' 
 gem 'devise'
+#gem for decoration
+gem 'draper'
+gem 'decent_decoration', '~> 0.1.0'
 #Better look for views
 gem 'slim'
 #Better look for controllers

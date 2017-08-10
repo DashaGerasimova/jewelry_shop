@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   include CurrentCart   #for set_cart and sort_cart method
   expose(:order)
+  expose_decorated(:order)
   expose(:orders) { Order.all }
   expose(:order_products) { set_order_products }
   expose(:cart) { set_cart }
