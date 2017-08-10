@@ -1,16 +1,8 @@
 class CommentsController < ApplicationController 
 
-  expose(:product) { Product.find(params[:product_id]) }
-  expose(:comments)do
-    product.comments
-  end
-  expose(:comment) do
-    unless params[:id].nil?
-      product.comments.find_by(params[:id])
-    else
-      product.comments.new(comment_params)
-    end
-  end
+  expose(:product) { set_product }
+  expose(:comments) { product.comments }
+  expose(:comment) { set_comment }
 
   def show
   end
@@ -39,6 +31,18 @@ class CommentsController < ApplicationController
   end
 
   private
+
+    def set_product
+      Product.find(params[:product_id])
+    end
+    
+    def set_comment
+      unless params[:id].nil?
+        product.comments.find_by(id: params[:id])
+      else
+        product.comments.new(comment_params)
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:rating, :text)
