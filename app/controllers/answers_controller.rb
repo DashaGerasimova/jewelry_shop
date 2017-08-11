@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
       unless params[:id].nil?
         comment.answers.find_by(id: params[:id])
       else
-        comment.answers.new(comment_params)
+        comment.answers.new(answer_params)
       end
     end
 

@@ -12,4 +12,12 @@
     = link_to 'Edit', edit_product_comment_path(comment.product, comment)
     |  | 
     = link_to 'Delete', product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' }
-  hr
+  br
+  #answersBlock
+    p 
+      strong Answers:
+    = render comment.answers
+
+    - if current_user.try(:manager?)  
+      = render 'answers/form', comment: comment, answer: comment.answers.build
+hr

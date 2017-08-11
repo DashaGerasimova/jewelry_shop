@@ -8,7 +8,9 @@ get 'carts/destroy' => 'carts#destroy'
 
 devise_for :users
 resources :products do
-  resources :comments
+  resources :comments do
+    resources :answers
+  end
 end 
 resources :carts
 

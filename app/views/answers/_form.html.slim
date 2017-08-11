@@ -1,0 +1,6 @@
+= form_for([comment.product, comment, answer]) do |f|
+  .field
+    = f.label :text
+    = f.text_field :text
+  .actions
+    = f.submit
