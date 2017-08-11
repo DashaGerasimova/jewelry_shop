@@ -5,6 +5,14 @@ class Product < ApplicationRecord
 
   resourcify
 
+  def self.search(search_term)
+    if search_term
+      where('name LIKE ?', "%#{search_term.downcase}%")
+    else
+      all
+    end
+  end
+
   def rating
     sum = 0.0
     unless self.comments.count == 0
