@@ -1,0 +1,12 @@
+#answer
+  p
+    strong Author:
+    = answer.user.email
+  p
+    strong Answer:
+    = answer.text
+  - if current_user.try(:admin?) || answer.user == current_user
+    = link_to 'Edit', edit_product_comment_answer_path(answer.comment.product, answer.comment, answer)
+    |  | 
+    = link_to 'Delete', product_comment_answer_path(answer.comment.product, answer.comment, answer), method: :delete, data: { confirm: 'Are you sure?' }
+  br
