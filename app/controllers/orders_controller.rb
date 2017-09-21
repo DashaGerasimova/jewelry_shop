@@ -1,13 +1,15 @@
 class OrdersController < ApplicationController
   include CurrentCart   #for set_cart and sort_cart method
-  expose(:order)
-  expose_decorated(:order)
+  expose :order 
+  expose_decorated :order
   expose(:orders) { Order.all }
-  expose(:order_products) { set_order_products }
+  expose :order_products, from: :order
+
   expose(:cart) { set_cart }
   expose(:sorted_cart) { sort_cart }
 
   #only managers can see all orders and change order status
+  #PUNDIT
   before_action :ensure_can_manage_orders, only: [:edit, :update, :index] 
 
   def create

@@ -2,21 +2,8 @@ require 'base64'
 require 'aws-sdk'
 
 class ProductsController < ApplicationController
-  expose(:products) { set_find_sort_products }
-  expose(:product)
-
-  def index
-  end
-  
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
+  expose_decorated(:product)
+  expose(:products) { Product.all.decorate }
   def create
     product.user = current_user
     
