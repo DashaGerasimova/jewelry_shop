@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
   
   expose :answers, from: :comment
 
+  before_action :authorize_comment
+
   def create
     comment.user = current_user
 
@@ -23,6 +25,9 @@ class CommentsController < ApplicationController
   end
 
   private
+    def authorize_comment
+      authorize comment
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:rating, :text)

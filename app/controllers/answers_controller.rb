@@ -4,6 +4,8 @@ class AnswersController < ApplicationController
 
   expose :answers, from: :comment
 
+  before_action :authorize_answer
+
   def create
     answer.user = current_user
 
@@ -22,6 +24,10 @@ class AnswersController < ApplicationController
   end
 
   private
+    def authorize_answer
+      authorize answer
+    end
+    
     def answer_params
       params.require(:answer).permit(:text, :user_id, :comment_id)
     end
