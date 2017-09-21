@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController 
 
   expose(:product) { set_product }
-  expose(:comment) { set_comment }
-  
   expose(:comments) { product.comments }
+  expose :comment, scope: ->{ product.comments }
+  
   expose(:answers) { comment.answers }
 
   def create
@@ -27,14 +27,6 @@ class CommentsController < ApplicationController
 
     def set_product
       Product.find(params[:product_id])
-    end
-
-    def set_comment
-      unless params[:id].nil?
-        product.comments.find_by(id: params[:id])
-      else
-        product.comments.new(comment_params)
-      end
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
