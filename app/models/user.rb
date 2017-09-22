@@ -15,9 +15,9 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.has_role? :admin
+    has_role? :admin
   end
   def manager?
-    self.has_role? :editor
+    has_role? :manager
   end
 end
