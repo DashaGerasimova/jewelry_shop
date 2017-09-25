@@ -39,6 +39,7 @@ gem 'slim'
 #Better look for controllers
 gem 'decent_exposure', '3.0.0'
 gem 'responders'
+gem 'pundit'
 #gems for user/admin/guest roles
 gem 'cancancan'
 gem 'rolify'
