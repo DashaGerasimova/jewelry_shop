@@ -2,10 +2,10 @@ class CreateImageForProduct
   include Interactor
 
   def call
-    data = params[:image]
+    data = context.image
 
     image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
-    image_location = "#{Rails.root}/public/uploads/#{product.id}.png"
+    image_location = "#{Rails.root}/public/uploads/#{context.product.id}.png"
 
     File.open(image_location, 'wb') do |f|
       f.write image_data
@@ -19,6 +19,7 @@ class CreateImageForProduct
     # key = "images/" + File.basename(image_location)
     # s3_file = bucket.object(key)
     # s3_file.upload_file(image_location)
-    product.image = "/uploads/#{product.id}.png"
+    result_image = "/uploads/#{context.product.id}.png"
+    context.product.update(image: result_image)
   end
 end
