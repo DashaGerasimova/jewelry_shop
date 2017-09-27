@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   def create
     order.user = current_user
     if order.save
-      create_order_products_from_cart
+      CreateOrderProductsFromCart.call(order: order, cart: sorted_cart)
       OrderCreateNotification.call(order: order)
     end
     respond_with order, location: profile_path
@@ -34,13 +34,6 @@ class OrdersController < ApplicationController
   private
     def authorize_order
       authorize order
-    end
-
-    def create_order_products_from_cart
-      sorted_cart.each do |product_id, quantity|
-        order_product = OrderProduct.new(product_id: product_id, order_id: order.id, cost: Product.find(product_id).price * quantity, quantity: quantity)   
-        order_product.save
-      end
     end
 
     def order_params
