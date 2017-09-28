@@ -8,7 +8,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    owner? 
+    owner?
   end
 
   def edit?

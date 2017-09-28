@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  include CurrentCart   #for set_cart and sort_cart method
+  include CurrentCart # for set_cart and sort_cart method
   expose_decorated :order
   expose(:orders) { Order.all }
   expose :order_products, from: :order
@@ -18,13 +18,13 @@ class OrdersController < ApplicationController
     respond_with order, location: profile_path
   end
 
-  #update order.status
+  # update order.status
   def update
     if order.update(order_status)
       OrderUpdateStatusNotification.call(order: order)
     end
     respond_with order, location: orders_path
-  end 
+  end
 
   def destroy
     order.destroy
@@ -32,14 +32,16 @@ class OrdersController < ApplicationController
   end
 
   private
-    def authorize_order
-      authorize order
-    end
 
-    def order_params
-      params.require(:order).permit(:name, :phone_number, :email, :address, :pay_type)
-    end
-    def order_status
-      params.require(:order).permit(:status)
-    end
+  def authorize_order
+    authorize order
+  end
+
+  def order_params
+    params.require(:order).permit(:name, :phone_number, :email, :address, :pay_type)
+  end
+
+  def order_status
+    params.require(:order).permit(:status)
+  end
 end

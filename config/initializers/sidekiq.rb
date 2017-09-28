@@ -1,2 +1,2 @@
-#Enables delay method
+# Enables delay method
 Sidekiq::Extensions.enable_delay!

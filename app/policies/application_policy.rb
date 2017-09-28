@@ -6,7 +6,7 @@ class ApplicationPolicy
     @record = record
   end
 
-  def owner? 
+  def owner?
     user == record.user
   end
 end
