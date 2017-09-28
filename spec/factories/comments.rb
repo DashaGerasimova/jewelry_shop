@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comment do
     rating 1
-    text "MyText"
+    text 'MyText'
     user nil
     product nil
   end

@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   expose :comment
-  expose :answer, scope: ->{ comment.answers }
+  expose :answer, scope: -> { comment.answers }
 
   expose :answers, from: :comment
 
@@ -24,11 +24,12 @@ class AnswersController < ApplicationController
   end
 
   private
-    def authorize_answer
-      authorize answer
-    end
-    
-    def answer_params
-      params.require(:answer).permit(:text, :user_id, :comment_id)
-    end
+
+  def authorize_answer
+    authorize answer
+  end
+
+  def answer_params
+    params.require(:answer).permit(:text, :user_id, :comment_id)
+  end
 end

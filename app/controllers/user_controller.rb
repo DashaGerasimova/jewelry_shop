@@ -1,6 +1,3 @@
 class UserController < ApplicationController
-
-  def profile
-  end
-
+  def profile; end
 end

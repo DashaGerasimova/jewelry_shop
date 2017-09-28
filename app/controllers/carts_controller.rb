@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  include CurrentCart   #for set_cart and sort_cart method
+  include CurrentCart # for set_cart and sort_cart method
   expose :product
   expose(:cart) { set_cart }
   expose(:sorted_cart) { sort_cart }

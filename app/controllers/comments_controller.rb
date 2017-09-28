@@ -1,8 +1,8 @@
-class CommentsController < ApplicationController 
+class CommentsController < ApplicationController
   expose :product
   expose :comments, from: :product
-  expose :comment, scope: ->{ product.comments }
-  
+  expose :comment, scope: -> { product.comments }
+
   expose :answers, from: :comment
 
   before_action :authorize_comment
@@ -25,11 +25,13 @@ class CommentsController < ApplicationController
   end
 
   private
-    def authorize_comment
-      authorize comment
-    end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:rating, :text)
-    end
+
+  def authorize_comment
+    authorize comment
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:rating, :text)
+  end
 end
